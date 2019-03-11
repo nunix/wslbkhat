@@ -48,10 +48,9 @@ install:
         source: bundle.parameters.DOCKER_SOURCE
       arguments:
         - build
-        - github.com/nunix/wslbkhat
-      outputs:
-        - name: DOCKER_IMAGE_BUILD
-        - key: DOCKER_IMAGE_BUILD
+        - git@github.com:nunix/wslbkhat
+        - -t
+        - source: bundle.parameters.DISTRO_IMAGE
   - exec:
       description: "===PORTER DOCKER=== Creates the base container"
       command: 
