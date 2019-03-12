@@ -37,6 +37,10 @@ parameters:
     type: string
     default: "/usr/local/docker/docker"
 
+  - name: DOCKERFILE_SOURCE
+    type: string
+    default: "git@github.com:nunix/wslbkhat"
+
   - name: WSL_SOURCE
     type: string
     default: "/mnt/c/Windows/System32/wsl.exe"
@@ -48,7 +52,7 @@ install:
         source: bundle.parameters.DOCKER_SOURCE
       arguments:
         - build
-        - git@github.com:nunix/wslbkhat
+        - source: bundle.parameters.DOCKERFILE_SOURCE
         - -t
         - source: bundle.parameters.DISTRO_IMAGE
         
